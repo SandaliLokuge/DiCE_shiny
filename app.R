@@ -714,7 +714,7 @@ server <- function(input, output, session) {
     ext <- tolower(tools::file_ext(input$expr_file$name))
     expr_tbl <- switch(
       ext,
-      "csv"  = readr::read_csv2(path, show_col_types = FALSE),
+      "csv"  = readr::read_csv(path, show_col_types = FALSE),
       "tsv"  = readr::read_tsv(path,  show_col_types = FALSE),
       "txt"  = readr::read_tsv(path,  show_col_types = FALSE),
       "xls"  = readxl::read_excel(path),
@@ -738,7 +738,7 @@ server <- function(input, output, session) {
     ext <- tolower(tools::file_ext(input$dge_file$name))
     dge_tbl <- switch(
       ext,
-      "csv"  = readr::read_csv2(path, show_col_types = FALSE),
+      "csv"  = readr::read_csv(path, show_col_types = FALSE),
       "tsv"  = readr::read_tsv(path,  show_col_types = FALSE),
       "txt"  = readr::read_tsv(path,  show_col_types = FALSE),
       "xls"  = readxl::read_excel(path),
