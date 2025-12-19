@@ -1,0 +1,17 @@
+Loading input data...
+ 
+Starting protein-coding gene filtering...
+ 
+
+ 
+'select()' returned 1:many mapping between keys and columns
+ 
+#Genes in Phase 1 (adj.P.Val<0.05 & |logFC|>0) = 5031
+ 
+#Genes in Phase 2 (Mean(IG)) = 2442
+ 
+[1] "Normalized gene expressions"
+#Genes in Phase 3 (StringDB PPI) =  2344
+ 
+#Genes in Phase 4 (top25) = 366
+ 

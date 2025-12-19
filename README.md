@@ -1,0 +1,83 @@
+# DiCE-Ex (DiCE-Ex)
+
+**DiCE-Ex** is an interactive web server implementing the **Differential Centrality-Ensemble (DiCE)** framework for network-based gene discovery from transcriptomic data. The platform enables researchers to identify influential disease-associated genes by integrating differential expression, information-theoretic feature selection, and protein–protein interaction (PPI) network topology—without relying on prior disease annotations.
+
+---
+
+## Background
+
+Traditional differential gene expression (DGE) analysis often misses biologically important genes with subtle expression changes. Network-based approaches help address this limitation but frequently depend on prior disease knowledge.
+
+**DiCE (Differential Centrality-Ensemble analysis)** overcomes these challenges by:
+- Integrating expression-driven gene selection with network topology
+- Constructing condition-specific weighted PPI networks
+- Ranking genes based on changes in network influence
+
+DiCE-Ex provides a complete, user-friendly interface to perform this analysis directly from transcriptomic data.
+
+---
+
+## Key Features
+
+- **Multi-phase DiCE pipeline**
+  - Differential expression filtering
+  - Information Gain (IG) or Weighted IG–based feature selection
+  - STRING-based PPI network construction
+  - Differential network centrality analysis
+
+- **Interactive analysis**
+  - Ranked gene tables with filtering and search
+  - PPI module detection
+  - Interactive PPI subnetworks and gene-level expression visualization
+
+- **Asynchronous job execution**
+  - Real-time progress tracking
+  - Shareable, bookmarkable result links
+  - No login required
+
+---
+
+## Input Requirements
+
+### 1. Normalized Expression Matrix
+- File formats: `.csv`, `.tsv`, `.xlsx`, `.rds`
+- Genes as **columns**
+- Samples as **rows**
+- **Class/condition label must be in the LAST column**
+- Do **not** place sample names as the first column
+
+### 2. Differential Gene Expression (DGE) Results
+Must include the following columns:
+- Gene identifier (official gene symbols recommended)
+- `logFC`
+- `P.Value`
+- `adj.P.Val`
+
+### 3. Experimental Design
+- Two-group comparison (e.g., Tumor vs Normal)
+- Group labels must exactly match values in the class column (case-sensitive)
+
+---
+
+## Supported Species
+
+- **Human (Homo sapiens)**
+- **Mouse (Mus musculus)**
+
+---
+
+## Output
+
+- DiCE results containing all genes retained across DiCE phases, along with differential expression metrics, IG or Weighted IG scores, network centrality values for each condition, and final ensemble ranks.
+- Detected PPI modules and membership tables: Detected modules in the STRING-derived interaction network of DiCE genes represent groups of tightly connected genes that may correspond to shared biological processes or pathways.
+- Interactive results visualization and exploration
+- Downloadable result files (Excel)
+
+---
+
+## Publication
+
+Pashaei, E., Liu, S., Li, K.Y., Zang, Y., Yang, L., Lautenschlaeger, T., Huang, J., Lu, X., & Wan, J. (2025). DiCE: differential centrality-ensemble analysis based on gene expression profiles and protein–protein interaction network. Nucleic Acids Research, 53. 
+
+https://academic.oup.com/nar/article/53/13/gkaf609/8192812
+

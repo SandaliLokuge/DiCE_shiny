@@ -1,0 +1,19 @@
+services:
+  dice-web:
+    build: .
+    container_name: dice-web
+    restart: unless-stopped
+    platform: linux/amd64
+    expose:
+      - "3838"
+
+  nginx:
+    image: nginx:1.25-alpine
+    container_name: dice-nginx
+    restart: unless-stopped
+    depends_on:
+      - dice-web
+    ports:
+      - "80:80"
+    volumes:
+      - ./nginx/conf.d:/etc/nginx/conf.d:ro
